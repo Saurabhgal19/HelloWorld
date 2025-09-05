@@ -1,0 +1,24 @@
+import React, { useState, useEffect } from "react";
+
+function App() {
+  const [message, setMessage] = useState("");
+
+   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+
+  useEffect(() => {
+    fetch(`${API_URL}/hello`)
+      .then((res) => res.text())
+      .then(setMessage)
+      .catch((err) => setMessage("Failed to fetch message"));
+  }, [API_URL]);
+
+  return (
+    <div style={{ marginTop: "50px", textAlign: "center" }}>
+      <h1>HelloWorld From React</h1>
+      <h2>{message}</h2>
+    </div>
+  );
+}
+
+export default App;
+
