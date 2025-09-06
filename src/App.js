@@ -10,7 +10,7 @@ function App() {
       .then((res) => res.text())
       .then(setMessage)
       .catch((err) => setMessage("Failed to fetch message"));
-  }, [API_URL]);
+  }, []);
 
   return (
     <div style={{ marginTop: "50px", textAlign: "center" }}>
